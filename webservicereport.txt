@@ -1,0 +1,122 @@
+
+/** Release process
+
+uTracking - Release Process
+
+
+keytool -genkey -v -keystore uTracking.keystore -alias uTracking -keyalg RSA -keysize 2048 -validity 10000
+
+1. cordova build --release android
+2. jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore uTracking.keystore platforms/android/build/outputs/apk/android-release-unsigned.apk uTracking
+   Password: uTracking
+3. /opt/android-sdk/build-tools/23.0.3/zipalign -v 4 platforms/android/build/outputs/apk/android-release-unsigned.apk UnifiedSalesmanTracking.apk
+
+
+Production Config
+
+{
+    "baseUrl": "http://usmart.unified-it.com:8080/api",
+    "imei_check": true
+}
+
+
+
+**/
+
+
+
+
+
+
+services
+
+cordova plugin add cordova-plugin-geolocation
+cordova plugin add cordova-plugin-network-information
+cordova plugin add cordova-plugin-splashscreen
+cordova plugin add cordova-plugin-whitelist
+cordova plugin add cordova-plugin-background-mode
+cordova plugin add cordova-plugin-device
+cordova plugin add cordova-plugin-mauron85-background-geolocation
+
+
+cordova plugin rm cordova-plugin-geolocation
+cordova plugin rm cordova-plugin-network-information
+cordova plugin rm cordova-plugin-splashscreen
+cordova plugin rm cordova-plugin-whitelist
+cordova plugin rm cordova-plugin-background-mode
+cordova plugin rm cordova-plugin-device
+cordova plugin rm cordova-plugin-mauron85-background-geolocation
+
+
+"cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.ionicframework.uSalesmanTracking9843447947"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.ionicframework.uSalesmanTracking9843447947"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.uSalesmanTracking9843447947"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.uSalesmanTracking9843447947"
+        },
+        "cordova-plugin-background-mode": {
+            "PACKAGE_NAME": "com.ionicframework.uSalesmanTracking9843447947"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.uSalesmanTracking9843447947"
+        }
+
+cordova-plugin-sqlite-storage
+
+
+(on loads routes section)
+factory ( routes)
+all
+response:
+[{"salesman_id":"1","route_id":"1","day":"5","route_name":"kalanki","store_name":"Store xyz","store_type":"Special","store_id":"1"},{"salesman_id":"1","route_id":"1","day":"5","route_name":"kalanki","store_name":"Maitidevi complex","store_type":"Special","store_id":"2"},{"salesman_id":"1","route_id":"1","day":"5","route_name":"kalanki","store_name":"Achyut store","store_type":"Wholesale","store_id":"6"},{"salesman_id":"1","route_id":"1","day":"5","route_name":"kalanki","store_name":"Verisk","store_type":"Wholesale","store_id":"7"},{"salesman_id":"1","route_id":"1","day":"5","route_name":"kalanki","store_name":"Balaju coffeeshop","store_type":"Wholesale","store_id":"8"},{"salesman_id":"1","route_id":"1","day":"5","route_name":"kalanki","store_name":"Sandeep","store_type":"Wholesale","store_id":"9"},{"salesman_id":"1","route_id":"1","day":"5","route_name":"kalanki","store_name":"Sandeep","store_type":"Wholesale","store_id":"10"},{"salesman_id":"1","route_id":"1","day":"5","route_name":"kalanki","store_name":"Syuchatar store","store_type":"Special","store_id":"34"},{"salesman_id":"1","route_id":"1","day":"5","route_name":"kalanki","store_name":"Test syuchatar","store_type":"Wholesale","store_id":"35"},{"salesman_id":"1","route_id":"1","day":"4","route_name":"kalanki","store_name":"Store xyz","store_type":"Special","store_id":"1"},{"salesman_id":"1","route_id":"1","day":"4","route_name":"kalanki","store_name":"Maitidevi complex","store_type":"Special","store_id":"2"},{"salesman_id":"1","route_id":"1","day":"4","route_name":"kalanki","store_name":"Achyut store","store_type":"Wholesale","store_id":"6"},{"salesman_id":"1","route_id":"1","day":"4","route_name":"kalanki","store_name":"Verisk","store_type":"Wholesale","store_id":"7"},{"salesman_id":"1","route_id":"1","day":"4","route_name":"kalanki","store_name":"Balaju coffeeshop","store_type":"Wholesale","store_id":"8"},{"salesman_id":"1","route_id":"1","day":"4","route_name":"kalanki","store_name":"Sandeep","store_type":"Wholesale","store_id":"9"},{"salesman_id":"1","route_id":"1","day":"4","route_name":"kalanki","store_name":"Sandeep","store_type":"Wholesale","store_id":"10"},{"salesman_id":"1","route_id":"1","day":"4","route_name":"kalanki","store_name":"Syuchatar store","store_type":"Special","store_id":"34"},{"salesman_id":"1","route_id":"1","day":"4","route_name":"kalanki","store_name":"Test syuchatar","store_type":"Wholesale","store_id":"35"},{"salesman_id":"1","route_id":"1","day":"3","route_name":"kalanki","store_name":"Store xyz","store_type":"Special","store_id":"1"},{"salesman_id":"1","route_id":"1","day":"3","route_name":"kalanki","store_name":"Maitidevi complex","store_type":"Special","store_id":"2"},{"salesman_id":"1","route_id":"1","day":"3","route_name":"kalanki","store_name":"Achyut store","store_type":"Wholesale","store_id":"6"},{"salesman_id":"1","route_id":"1","day":"3","route_name":"kalanki","store_name":"Verisk","store_type":"Wholesale","store_id":"7"},{"salesman_id":"1","route_id":"1","day":"3","route_name":"kalanki","store_name":"Balaju coffeeshop","store_type":"Wholesale","store_id":"8"},{"salesman_id":"1","route_id":"1","day":"3","route_name":"kalanki","store_name":"Sandeep","store_type":"Wholesale","store_id":"9"},{"salesman_id":"1","route_id":"1","day":"3","route_name":"kalanki","store_name":"Sandeep","store_type":"Wholesale","store_id":"10"},{"salesman_id":"1","route_id":"1","day":"3","route_name":"kalanki","store_name":"Syuchatar store","store_type":"Special","store_id":"34"},{"salesman_id":"1","route_id":"1","day":"3","route_name":"kalanki","store_name":"Test syuchatar","store_type":"Wholesale","store_id":"35"},{"salesman_id":"1","route_id":"1","day":"2","route_name":"kalanki","store_name":"Store xyz","store_type":"Special","store_id":"1"},{"salesman_id":"1","route_id":"1","day":"2","route_name":"kalanki","store_name":"Maitidevi complex","store_type":"Special","store_id":"2"},{"salesman_id":"1","route_id":"1","day":"2","route_name":"kalanki","store_name":"Achyut store","store_type":"Wholesale","store_id":"6"},{"salesman_id":"1","route_id":"1","day":"2","route_name":"kalanki","store_name":"Verisk","store_type":"Wholesale","store_id":"7"},{"salesman_id":"1","route_id":"1","day":"2","route_name":"kalanki","store_name":"Balaju coffeeshop","store_type":"Wholesale","store_id":"8"},{"salesman_id":"1","route_id":"1","day":"2","route_name":"kalanki","store_name":"Sandeep","store_type":"Wholesale","store_id":"9"},{"salesman_id":"1","route_id":"1","day":"2","route_name":"kalanki","store_name":"Sandeep","store_type":"Wholesale","store_id":"10"},{"salesman_id":"1","route_id":"1","day":"2","route_name":"kalanki","store_name":"Syuchatar store","store_type":"Special","store_id":"34"},{"salesman_id":"1","route_id":"1","day":"2","route_name":"kalanki","store_name":"Test syuchatar","store_type":"Wholesale","store_id":"35"},{"salesman_id":"1","route_id":"2","day":"1","route_name":"Baneshwor","store_name":"Sandeep","store_type":"Retail","store_id":"11"},{"salesman_id":"1","route_id":"2","day":"1","route_name":"Baneshwor","store_name":"Sudip","store_type":"Retail","store_id":"31"},{"salesman_id":"1","route_id":"2","day":"1","route_name":"Baneshwor","store_name":"Baneshwore cold store","store_type":"Large","store_id":"37"},{"salesman_id":"1","route_id":"4","day":"0","route_name":"Kalimati","store_name":"Achyut kalimati","store_type":"Medium","store_id":"38"},{"salesman_id":"1","route_id":"4","day":"0","route_name":"Kalimati","store_name":"Sample","store_type":"Retail","store_id":"39"}]
+
+
+function monitorGPSLocation
+
+service ProductService
+updateTarget
+response:
+{"result":true}
+getProductsList
+service store
+getDetails
+response :
+
+
+noOrderReasons
+syncNoOrdersData
+getNewAddStoreInfo
+updateLatLng
+
+
+
+service Target
+get
+{"daily":{"target_amount":"30000","total_achieved":0,"total_remaining":30000},"monthly":{"target_amount":"30000","total_achieved":75728,"total_remaining":0}}
+getCoverageReport
+{"daily":{"total_stores":0,"visited_stores":0,"remaining_stores":0,"coverage":0},"monthly":{"total_stores":0,"visited_stores":34,"remaining_stores":-34,"coverage":0}}
+getUnSyncedTarget
+
+
+
+service TargetHistory
+get
+{"Jan 20, 2016":{"Achyut kalimati":[{"store_id":"38","store_name":"Achyut kalimati","route_name":"Kalimati","day":"Jan 20, 2016","quantity":"1","amount":"1515","product_name":"250ML Can Case","product_group_name":"Energy Drinks"}]},"Jan 19, 2016":{"Achyut kalimati":[{"store_id":"38","store_name":"Achyut kalimati","route_name":"Kalimati","day":"Jan 19, 2016","quantity":"1","amount":"1515","product_name":"250ML Can Case","product_group_name":"Energy Drinks"},{"store_id":"38","store_name":"Achyut kalimati","route_name":"Kalimati","day":"Jan 19, 2016","quantity":"3","amount":"4590","product_name":"Redbull 250 ML CAN","product_group_name":"Energy Drinks"},{"store_id":"38","store_name":"Achyut kalimati","route_name":"Kalimati","day":"Jan 19, 2016","quantity":"8","amount":"120","product_name":"50Gram","product_group_name":"Noodles"},{"store_id":"38","store_name":"Achyut kalimati","route_name":"Kalimati","day":"Jan 19, 2016","quantity":"4","amount":"6120","product_name":"QUOTENAME(Redbull 250 ML CAN)","product_group_name":"QUOTENAME(Energy Drinks)"},{"store_id":"38","store_name":"Achyut kalimati","route_name":"Kalimati","day":"Jan 19, 2016","quantity":"2","amount":"1606","product_name":"Invenio Riesling","product_group_name":"Wine"},{"store_id":"38","store_name":"Achyut kalimati","route_name":"Kalimati","day":"Jan 19, 2016","quantity":"6","amount":"4332","product_name":"Invenio Shiraz Rose","product_group_name":"Wine"},{"store_id":"38","store_name":"Achyut kalimati","route_name":"Kalimati","day":"Jan 19, 2016","quantity":"8","amount":"120","product_name":"50Gram","product_group_name":"Noodles"}],"Sandeep":[{"store_id":"11","store_name":"Sandeep","route_name":"Baneshwor","day":"Jan 19, 2016","quantity":"1","amount":"3071","product_name":"Carlsberg 650 ML BTL","product_group_name":"Beer"},{"store_id":"11","store_name":"Sandeep","route_name":"Baneshwor","day":"Jan 19, 2016","quantity":"2","amount":"0","product_name":"Carlsberg 500 ML CAN","product_group_name":"Beer"},{"store_id":"11","store_name":"Sandeep","route_name":"Baneshwor","day":"Jan 19, 2016","quantity":"3","amount":"9000","product_name":"650ML Bottle Case","product_group_name":"Beer"}],"Store xyz":[{"store_id":"1","store_name":"Store xyz","route_name":"kalanki","day":"Jan 19, 2016","quantity":"1","amount":"0","product_name":"650ML Bottle Case","product_group_name":"Beer"},{"store_id":"1","store_name":"Store xyz","route_name":"kalanki","day":"Jan 19, 2016","quantity":"1","amount":"0","product_name":"50Gram","product_group_name":"Noodles"}],"Maitidevi complex":[{"store_id":"2","store_name":"Maitidevi complex","route_name":"kalanki","day":"Jan 19, 2016","quantity":"7","amount":"10605","product_name":"250ML Can Case","product_group_name":"Energy Drinks"},{"store_id":"2","store_name":"Maitidevi complex","route_name":"kalanki","day":"Jan 19, 2016","quantity":"2","amount":"3060","product_name":"Redbull 250 ML CAN","product_group_name":"Energy Drinks"}]},"Jan 11, 2016":{"Baneshwore cold store":[{"store_id":"37","store_name":"Baneshwore cold store","route_name":"Baneshwor","day":"Jan 11, 2016","quantity":"1","amount":"1515","product_name":"250ML Can Case","product_group_name":"Energy Drinks"}]},"Jan 10, 2016":{"Achyut kalimati":[{"store_id":"38","store_name":"Achyut kalimati","route_name":"Kalimati","day":"Jan 10, 2016","quantity":"5","amount":"4015","product_name":"Invenio Zinfandel Red","product_group_name":"Wine"},{"store_id":"38","store_name":"Achyut kalimati","route_name":"Kalimati","day":"Jan 10, 2016","quantity":"2","amount":"6000","product_name":"650ML Bottle Case","product_group_name":"Beer"},{"store_id":"38","store_name":"Achyut kalimati","route_name":"Kalimati","day":"Jan 10, 2016","quantity":"2","amount":"1606","product_name":"Invenio Zinfandel Red","product_group_name":"Wine"},{"store_id":"38","store_name":"Achyut kalimati","route_name":"Kalimati","day":"Jan 10, 2016","quantity":"4","amount":"60","product_name":"50Gram","product_group_name":"Noodles"}],"Sandeep":[{"store_id":"11","store_name":"Sandeep","route_name":"Baneshwor","day":"Jan 10, 2016","quantity":"1","amount":"3000","product_name":"650ML Bottle Case","product_group_name":"Beer"},{"store_id":"11","store_name":"Sandeep","route_name":"Baneshwor","day":"Jan 10, 2016","quantity":"2","amount":"6400","product_name":"330ML bottle Case","product_group_name":"Beer"},{"store_id":"11","store_name":"Sandeep","route_name":"Baneshwor","day":"Jan 10, 2016","quantity":"3","amount":"255","product_name":"Carlsberg can","product_group_name":"Beer"}],"Store xyz":[{"store_id":"1","store_name":"Store xyz","route_name":"kalanki","day":"Jan 10, 2016","quantity":"1","amount":"0","product_name":"650ML Bottle Case","product_group_name":"Beer"},{"store_id":"1","store_name":"Store xyz","route_name":"kalanki","day":"Jan 10, 2016","quantity":"2","amount":"0","product_name":"330ML bottle Case","product_group_name":"Beer"},{"store_id":"1","store_name":"Store xyz","route_name":"kalanki","day":"Jan 10, 2016","quantity":"3","amount":"0","product_name":"250ML Can Case","product_group_name":"Energy Drinks"},{"store_id":"1","store_name":"Store xyz","route_name":"kalanki","day":"Jan 10, 2016","quantity":"1","amount":"0","product_name":"50Gram","product_group_name":"Noodles"},{"store_id":"1","store_name":"Store xyz","route_name":"kalanki","day":"Jan 10, 2016","quantity":"1","amount":"0","product_name":"Invenio Zinfandel Red","product_group_name":"Wine"},{"store_id":"1","store_name":"Store xyz","route_name":"kalanki","day":"Jan 10, 2016","quantity":"2","amount":"0","product_name":"Invenio Riesling","product_group_name":"Wine"},{"store_id":"1","store_name":"Store xyz","route_name":"kalanki","day":"Jan 10, 2016","quantity":"1","amount":"0","product_name":"250ML Can Case","product_group_name":"Energy Drinks"}],"Syuchatar store":[{"store_id":"34","store_name":"Syuchatar store","route_name":"kalanki","day":"Jan 10, 2016","quantity":"1","amount":"3000","product_name":"650ML Bottle Case","product_group_name":"Beer"},{"store_id":"34","store_name":"Syuchatar store","route_name":"kalanki","day":"Jan 10, 2016","quantity":"2","amount":"170","product_name":"Carlsberg can","product_group_name":"Beer"},{"store_id":"34","store_name":"Syuchatar store","route_name":"kalanki","day":"Jan 10, 2016","quantity":"1","amount":"803","product_name":"Invenio Riesling","product_group_name":"Wine"}]},"Jan 9, 2016":{"Sandeep":[{"store_id":"11","store_name":"Sandeep","route_name":"Baneshwor","day":"Jan 9, 2016","quantity":"5","amount":"3250","product_name":"750ML Bottle","product_group_name":"Wine"}]},"Dec 24, 2015":{"Achyut kalimati":[{"store_id":"38","store_name":"Achyut kalimati","route_name":"Kalimati","day":"Dec 24, 2015","quantity":"5","amount":"16000","product_name":"330ML bottle Case","product_group_name":"Beer"}]},"Dec 23, 2015":{"Achyut kalimati":[{"store_id":"38","store_name":"Achyut kalimati","route_name":"Kalimati","day":"Dec 23, 2015","quantity":"4","amount":"12000","product_name":"650ML Bottle Case","product_group_name":"Beer"}]},"Dec 22, 2015":{"Maitidevi complex":[{"store_id":"2","store_name":"Maitidevi complex","route_name":"kalanki","day":"Dec 22, 2015","quantity":"5","amount":"0","product_name":"250ML Can Case","product_group_name":"Energy Drinks"}]},"Dec 13, 2015":{"Achyut store":[{"store_id":"6","store_name":"Achyut store","route_name":"kalanki","day":"Dec 13, 2015","quantity":"2","amount":"0","product_name":"Sanmiguel 650 ML BTL","product_group_name":"Beer"}]},"Dec 5, 2015":{"Achyut store":[{"store_id":"6","store_name":"Achyut store","route_name":"kalanki","day":"Dec 5, 2015","quantity":"5","amount":"7575","product_name":"250ML Can Case","product_group_name":"Energy Drinks"}]},"Nov 25, 2015":{"Store xyz":[{"store_id":"1","store_name":"Store xyz","route_name":"kalanki","day":"Nov 25, 2015","quantity":"5","amount":"15000","product_name":"650ML Bottle Case","product_group_name":"Beer"},{"store_id":"1","store_name":"Store xyz","route_name":"kalanki","day":"Nov 25, 2015","quantity":"2","amount":"1300","product_name":"750ML Bottle","product_group_name":"Wine"},{"store_id":"1","store_name":"Store xyz","route_name":"kalanki","day":"Nov 25, 2015","quantity":"4","amount":"6060","product_name":"250ML Can Case","product_group_name":"Energy Drinks"}]}}
+
+service Orders
+getSyncedOrders
+
+
+
+service LoginService
+loginUser
+request :
+{username: "9843447947", password: "9843447947"}
+response :
+{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwiaXNzIjoiaHR0cDpcL1wvb21zLnVuaWZpZWQtaXQuY29tOjEwODBcL2FwaVwvYXV0aGVudGljYXRlIiwiaWF0IjoxNDU0MTQwOTM3LCJleHAiOjE0NTQ3NDU3MzcsIm5iZiI6MTQ1NDE0MDkzNywianRpIjoiZGUxNzBlN2ZmMTY4NmEzMWUwZGJiMWNmYjc0NDQ4ZmYifQ.Ybd3OOQeelp1IpbgDKKsoJp99sAzvUFXUefPU_HBI-8"}

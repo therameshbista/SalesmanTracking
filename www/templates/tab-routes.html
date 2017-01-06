@@ -1,0 +1,21 @@
+<ion-view view-title="Routes">
+  <ion-content on-swipe-right="goBack()" on-swipe-left="goForward()">
+      <div ng-show="isEmpty(routes)" class="list card">
+          <div class="item item-body">
+              <div>
+                  No routes are assigned to you .
+              </div>
+          </div>
+      </div>
+     <ion-item ng-controller="ConnectionCtrl" ng-if="lastupdated" style="background-color:red;color:white;height:25px;padding:2px;padding-left:5px;">
+          Last Updated : {{lastupdated | date :'yyyy-MM-dd HH:mm:ss'}}
+      </ion-item>
+    <ion-list>
+      <ion-item class="item-icon-left item-remove-animate item-icon-right" ng-repeat="route in routes| unique:'route_id'" type="item-text-wrap" href="#/tab/stores/{{route.route_id}}/{{route.route_name}}">
+          <i class="icon {{keyExists(route.route_id) ? 'ion-checkmark positive' : ''}} {{isUnverified(route.route_id) == true ? 'ion-checkmark assertive' : ''}}  {{isSynced(route.route_id) == true ? 'ion-checkmark balanced' : ''}}"></i>
+          <h2>{{route.route_name}}</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

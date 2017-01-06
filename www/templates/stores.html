@@ -1,0 +1,22 @@
+<ion-view cache-view="false" view-title="Outlets">
+  <ion-content on-swipe-right="goBack()" on-swipe-left="goForward()">
+      <ion-item ng-controller="ConnectionCtrl" ng-if="lastupdated" style="background-color:red;color:white;height:25px;padding:2px;padding-left:5px;">
+          Last Updated : {{lastupdated | date :'yyyy-MM-dd HH:mm:ss'}}
+      </ion-item>
+    <ion-list can-swipe="true">
+      <ion-item class=" item-icon-left item-icon-right" ng-repeat="store in stores | unique:'store_id'" type="item-text-wrap" ng-if="store.route_id==routeId" href="#/tab/pg/{{store.store_id}}/{{store.store_name}}/{{store.store_type}}">
+        <i class="icon {{keyExists(store.store_id) ? 'ion-checkmark positive' : ''}} {{isUnverified(store.store_id) == true ? 'ion-checkmark assertive' : ''}} {{isSynced(store.store_id) == true ? 'ion-checkmark balanced' : ''}}"></i>
+        <h2>{{store.store_name}}</h2>
+        <ion-option-button class="ion-information-circled calm" ng-click="showModal(1, store)"></ion-option-button>
+        <ion-option-button class="ion-alert assertive" ng-click="showModal(2, store)"></ion-option-button>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <div class="bar bar-footer">
+    <button class="floating-button" ng-click="addStore()">
+      <i class="icon ion ion-android-add"></i>
+    </button>
+  </div>
+</ion-view>
+

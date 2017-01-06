@@ -1,0 +1,17 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title">Choose a reason</h1>
+        <button class="button button-clear button-primary" ng-click="noOrderReasonModal.hide()">Close</button>
+    </ion-header-bar>
+    <form ng-submit="addReason()">
+	    <ion-content class="padding">
+	    	<ion-radio ng-model="choice.id" ng-Value="{{key}}" ng-repeat="(key, reason) in reasons">{{reason}}</ion-radio>
+	    		<div class="list content padding" ng-show="choice.id == 6">
+				  <label class="item item-input">
+				    <textarea placeholder="Reason" ng-model="choice.other_reason"></textarea>
+				  </label>
+				</div>
+	    	 <button class="button button-block button-positive padding">Save no order reason</button>
+	    </ion-content>
+    </form>
+</ion-modal-view>

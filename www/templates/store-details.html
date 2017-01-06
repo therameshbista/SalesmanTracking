@@ -1,0 +1,40 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title">{{modalData[0].store_name}} Details</h1>
+        <button class="button button-clear button-primary" ng-click="storeDetailsModal.hide()">Close</button>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list list-inset">
+            <label class="item item-input">
+                <span class="input-label">Name</span>
+                <span>{{modalData[0].store_name}}</span>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Phone No</span>
+                <span>{{modalData[0].phone_number}}</span>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Contact Person</span>
+                <span>{{modalData[0].contact_person}}</span>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Pan No</span>
+                <span>{{modalData[0].pan_no}}</span>
+            </label>
+            <label class="item  item-input">
+                <span class="input-label">Outlet Size</span>
+                <span>{{modalData[0].store_size}}</span>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Outlet Type</span>
+                <span>{{modalData[0].type}}</span>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Route</span>
+                <span>{{modalData[0].name}}</span>
+            </label>
+        </div>
+        <div id="map" data-tap-disabled="true"></div>
+        <!-- <button class="button button-block button-positive">Add New Store</button> -->
+    </ion-content>
+</ion-modal-view>

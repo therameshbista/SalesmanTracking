@@ -1,0 +1,35 @@
+<ion-view view-title="Products">
+    <ion-content on-swipe-right="goBack()" on-swipe-left="goForward()">
+        <div ng-show="isEmpty(products)" class="list card">
+            <div class="item item-body">
+                <div>
+                    No product were found.
+                </div>
+            </div>
+        </div>
+        <ion-list ng-hide="isEmpty(products)">
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" placeholder="Search Products" id="search" ng-model="searchProduct">
+                </label>
+            </div>
+            <div class="item item-divider">
+                {{storeName}}
+            </div>
+            <ion-item class="item-icon-left item-remove-animate item-icon-right" ng-repeat="product in products | filter:searchProduct | unique:'product_name'" type="item-text-wrap" ng-click="dispatchProduct(product)"
+                    ng-if="product.product_sub_group_id==groupId"
+                      >
+                <i class="icon {{(product.visited == true)  || (product.is_delivered == 1) || (keyExists(product.product_id)) ? 'ion-checkmark positive' : ''}} {{isUnverified(product.product_id) == true ? 'ion-checkmark assertive' : ''}}  {{isSynced(product.product_id) == true ? 'ion-checkmark balanced' : ''}}"></i>
+                <h2>{{product.product_name}} <span style='float:right;padding:3px;'> Rs. {{getPrice(product)}}</span><br>
+                  <span class="{{product.stock<=0 ? 'noStock' : 'stock'}}">{{product.stock}} stock</span> </h2>
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <div class="bar bar-footer">
+        <button class="floating-button" ng-click="verify()">
+            <i class="icon ion ion-android-done-all toit"></i>
+        </button>
+    </div>
+</ion-view>

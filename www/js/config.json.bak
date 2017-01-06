@@ -1,0 +1,4 @@
+{
+    "baseUrl": "http://202.166.198.71:8080/api",
+    "imei_check": true
+}

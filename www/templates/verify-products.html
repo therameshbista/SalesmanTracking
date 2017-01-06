@@ -1,0 +1,27 @@
+<ion-modal-view class="padding">
+    <ion-header-bar class="bar bar-header bar-positive">
+        <button class="button button-primary" ng-click="modalVerifyProducts.hide()">Close</button>
+        <h1 class="title">{{storeName}}</h1>
+        <button class="button" ng-click="verifyProducts()">
+            Confirm Orders
+        </button>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list show-delete="true">
+            <ion-item ng-repeat="product in unverifiedProducts track by $index" item="product"
+                      class="item-remove-animate padding">
+                <small>{{product.product_name}}</small>
+                <span class="item-note item-note-right"> Qty: {{product.sold_qty }} </span><br/>
+                <span class="item-note item-note-right"> Discount: {{product.discount }} </span><br/>
+                <span class="item-note item-note-right"> Price: {{product.price }} </span>
+                <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(product)">
+                </ion-delete-button>
+            </ion-item>
+            <br/><br/>
+
+            <div class="padding">
+                <strong>Total: </strong><span class="item-note"><b>{{totalAmount}}</b> </span>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

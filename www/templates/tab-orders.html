@@ -1,0 +1,19 @@
+<ion-view view-title="Orders">
+    <ion-content on-swipe-right="goBack()" on-swipe-left="goForward()">
+        <ion-list>
+            <div class="card" ng-repeat=" orders in todaysOrders">
+                <div class="item item-divider">{{orders[0].store_name}}
+                    <br/>
+                    <strong>{{orders | getSKUcounts}}</strong> SKUs <strong>{{orders | getBrandcounts}}</strong> Brands
+                    <span class="item-note item-note-right"> Total Rs  <strong>{{orders | getTotalAmount
+                        }}</strong> </span>
+                </div>
+                <ion-item ng-repeat="order in orders" item="item">
+                    <small>{{ order.product_name }}</small>
+                    <span class="item-note item-note-right"> Qty {{ order.quantity }} </span><br/>&nbsp;&nbsp;&nbsp;
+                    <span class="item-note item-note-right"> Total Rs. {{ order.amount }} </span>
+                </ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

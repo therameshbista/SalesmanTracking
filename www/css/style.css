@@ -1,0 +1,161 @@
+/* Empty. Add your own CSS if you like */
+.scroll {
+    height: 100%;
+}
+
+#map,#map1 {
+    width: 100%;
+    height: 90%;
+}
+
+.show{
+    display: block;
+}
+.hide{
+    display: none;
+}
+
+ion-popover-view.fit {
+  height: auto;
+}
+
+ion-popover-view.fit ion-content {
+  position: relative;
+}
+
+.platform-android ion-popover-view.fit {
+  margin-top: 10px;
+}
+
+.platform-ios ion-popover-view.fit {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.angular-google-map-container {
+  height: 100%;
+}
+
+/*
+ * http://docs.angularjs.org/api/ng/directive/ngShow#usage_animations
+ */
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+
+
+
+
+form i.icon.error {
+  color: #ef4e3a; }
+
+form input + i.icon.error {
+  display: none;
+  margin-left: 8px; }
+
+form.ng-submitted input.ng-invalid + i.icon.error {
+  display: block; }
+
+form .has-error {
+  border-left: 3px solid #cc2511;
+  border-right: 3px solid #cc2511;
+}
+
+form .has-success {
+  border-left: 3px solid #3d8b3d;
+  border-right: 3px solid #3d8b3d;
+}
+
+form.ng-submitted input.ng-valid + i.icon.error {
+  display: none; }
+
+.validated {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0px;
+  width: 100%; }
+
+.validated .input-label {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 30%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 30%;
+  -ms-flex: 0 0 30%;
+  flex: 0 0 30%;
+  max-width: 30%;
+}
+
+.validated input {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 60%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 60%;
+  -ms-flex: 0 0 60%;
+  flex: 0 0 60%;
+  max-width: 60%;
+}
+
+.validated error {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 10%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 10%;
+  -ms-flex: 0 0 10%;
+  flex: 0 0 10%;
+  max-width: 10%;
+}
+.icon.menu-icon{
+    font-size: 20px;
+}
+
+
+.today{
+  background-color: rgba(255, 253, 16, 0.30) !important;
+}
+.error{
+  color:red;
+  font-size:10pt;
+  width:100%;
+  border: 1px solid #ddd;
+  border-top:0;
+  margin-top:-1px;
+  padding:2px;
+}
+
+.stock{
+  background: #68805e;
+  color: #ffffff;
+  font-size:11px;
+  border-radius: 10px;
+  padding:4px;
+}
+
+.noStock{
+  background: #ff6662;
+  color: #ffffff;
+  font-size:11px;
+  border-radius: 10px;
+  padding:4px;
+}
+
+.manager_comment{
+  color: rgba(0, 0, 0, 0.46);
+  padding:5px;
+  text-align: center;
+  background: rgba(245, 245, 245, 0.58);
+}
+

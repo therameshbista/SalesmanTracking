@@ -1,0 +1,36 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title">{{product.product_name}}</h1>
+        <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <label class="item item-input-inset">
+            <span class="input-label padding">Outlet Name</span>
+            <span class="input-label padding">{{storeName}}</span>
+        </label>
+        <label class="item item-input-inset">
+            <span class="input-label padding">Unit Price = <strong>{{product.price}} </strong></span>
+        </label>
+        <label class="item item-input-inset">
+            <span class="input-label padding">Qty</span>
+            <input ng-model="qty" ng-change="calculateTotal(qty,product.price,discount,  product.excise, product.tax)" type="number"  class="padding-right">
+        </label>
+        <label class="item item-input-inset">
+            <span class="input-label padding">Excise({{product.excise}}%) = <strong>{{exciseAmt | number:2}}</strong></span>
+        </label>
+        <label class="item item-input-inset">
+            <span class="input-label padding">Discounts(%)</span>
+            <input style="width:30%" ng-model="discount" ng-change="calculateTotal(qty,product.price,discount, product.excise, product.tax)" type="number"  min="0" max="100" step="0.01"  class="padding-right">
+            <br><span class="input-label padding">{{discountAmt | number:2}}</span>
+        </label>
+
+        <label class="item item-input-inset">
+           <span class="input-label padding">Tax({{product.tax}}%) = <strong >{{taxAmt | number:2}} </strong></span>
+        </label>
+
+        <label class="item item-input-inset">
+            <span class="input-label padding">Total: Rs  <strong>{{totalSum | number:2}} </strong></span>
+        </label>
+        <button class="button button-full button-positive" ng-click="addProduct(qty,discount, comment, product.excise,product.tax)">Add Product</button>
+    </ion-content>
+</ion-modal-view>

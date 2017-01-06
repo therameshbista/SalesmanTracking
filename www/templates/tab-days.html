@@ -1,0 +1,11 @@
+<ion-view view-title="Days">
+  <ion-content on-swipe-right="goBack()" on-swipe-left="goForward()">
+    <ion-list>
+      <ion-item class="item-remove-animate item-icon-left item-icon-right" ng-repeat="day in days" type="item-text-wrap" href="#/tab/routes/{{day.id}}">
+        <i ng-show="today == day.id" class="icon ion-checkmark-circled balanced"></i>
+        <h2>{{day.name}}</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,35 @@
+<ion-view view-title="Outlets">
+  <ion-content on-swipe-right="goBack()" on-swipe-left="goForward()">
+<ion-item ng-controller="ConnectionCtrl" ng-if="lastupdated" style="background-color:red;color:white;height:25px;padding:2px;padding-left:5px;">
+          Last Updated : {{lastupdated | date :'yyyy-MM-dd HH:mm:ss'}}
+      </ion-item>
+    <ion-list>
+      <div ng-repeat="(day, store) in data track by $index">
+        <ion-item
+                  ng-click="toggleGroup(store)"
+                  ng-class="{active: isGroupShown(store)}">
+          <i class="icon" ng-class="isGroupShown(store) ? 'ion-minus' : 'ion-plus'"></i>
+          {{day}}
+        </ion-item>
+        <div class="item-accordion list card"
+             ng-repeat="(store_name, storeData) in store"
+             ng-show="isGroupShown(store)">
+          <div class="item item-divider">
+            {{store_name}}
+            <br/>
+            <strong>{{storeData | getSKUcounts}}</strong> SKUs  <strong>{{storeData | getBrandcounts}}</strong> Brands
+            <span class="item-note item-note-right"> Total Rs  <strong>{{storeData | getTotalAmount }}</strong> </span>
+          </div>
+          <div class="item item-body" ng-repeat="row in storeData">
+            <div class="item item-icon-left item-icon-right padding">
+              <small>{{row.product_name}}</small>
+              <span class="item-note item-note-right"> Qty: {{ row.quantity }} </span><br/>
+              <span class="item-note item-note-right"> Total Rs. {{ row.amount }} </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

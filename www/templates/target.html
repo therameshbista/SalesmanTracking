@@ -1,0 +1,84 @@
+<ion-view view-title="Reports">
+    <ion-item ng-controller="ConnectionCtrl" ng-if="lastupdated" style="background-color:red;color:white;height:25px;padding:2px;padding-left:5px;">
+          Last Updated : {{lastupdated | date :'yyyy-MM-dd HH:mm:ss'}}
+      </ion-item>
+  <ion-content class="padding">
+    <div class="list card">
+      <div class="item item-divider">Target Summary</div>
+      <div class="item item-body">
+        <div>
+          Target: <span class="item-note">Rs. <b>{{orders.monthly.target_amount}}</b> </span>
+        </div>
+      </div>
+      <div class="item item-body">
+        <div>
+          Target acheived today: <span class="item-note">Rs. <b>{{orders.daily.total_achieved + orders.unsyncedOrder}}</b> </span>
+        </div>
+      </div>
+      <div class="item item-body">
+        <div>
+          Total target acheived: <span class="item-note">Rs. <b>{{orders.monthly.total_achieved + orders.unsyncedOrder}}</b></span>
+        </div>
+      </div>
+      <div class="item item-body">
+        <div>
+          Target remaining: <span class="item-note">Rs. <b>{{orders.monthly.total_remaining - orders.unsyncedOrder}} ( {{(orders.monthly.total_remaining/orders.monthly.target_amount)*100}}% )</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item item-divider">Daily Coverage <span class="item-note">({{ today | date:'mediumDate'}})</span></div>
+      <div class="item item-body">
+        <div>
+          Today's Coverage Target: <span class="item-note"><b>{{covereage.daily.total_stores}}</b></span>
+        </div>
+      </div>
+      <div class="item item-body">
+        <div>
+          Outlets Visited: <span class="item-note"><b>{{covereage.daily.visited_stores}}</b></span>
+        </div>
+      </div>
+      <div class="item item-body">
+        <div>
+          Remaining Outlets: <span class="item-note"><b>{{covereage.daily.remaining_stores}}</b></span>
+        </div>
+      </div>
+      <div class="item item-body">
+        <div>
+          Today's Total Coverage: <span class="item-note"><b>{{covereage.daily.coverage}} %</b></span>
+        </div>
+      </div>
+      <div class="item item-body">
+        <div>
+          Today's Total Productivity: <span class="item-note"><b>{{covereage.daily.productivity}} %</b></span>
+        </div>
+      </div>
+    </div>
+    <!--
+    <div class="list card">
+      <div class="item item-divider">Monthly Covereage</div>
+      <div class="item item-body">
+        <div>
+          Monthly covereage Target: <span class="item-note"><b>{{covereage.monthly.total_stores}}</b></span>
+        </div>
+      </div>
+      <div class="item item-body">
+        <div>
+          Outlets Visited: <span class="item-note"><b>{{covereage.monthly.visited_stores}}</b></span>
+        </div>
+      </div>
+      <div class="item item-body">
+        <div>
+          Remaining Outlets: <span class="item-note"><b>{{covereage.monthly.remaining_stores}}</b></span>
+        </div>
+      </div>
+      <div class="item item-body">
+        <div>
+          Total Coverage: <span class="item-note"><b>{{covereage.monthly.coverage}} %</b></span>
+        </div>
+      </div>
+    </div>
+    -->
+    
+  </ion-content>
+</ion-view>

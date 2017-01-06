@@ -1,0 +1,24 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title">Add Comment</h1>
+        <button class="button button-clear button-primary" ng-click="addCommentAndVerifyProduct()">Cancel</button>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <div class="row">
+            <div class="col">
+                <label class="item item-input text">
+                    <textarea placeholder="Comment" rows="5" ng-model="comment" name="description"></textarea>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+             <div class="col">
+               
+                <ion-radio ng-model="visit" ng-checked="true" ng-value="1">By Visit</ion-radio>
+                
+                <ion-radio ng-model="visit"  ng-value="0">By phone/sms</ion-radio>
+            </div>
+        </div>
+        <button class="button button-full button-positive" ng-click="addCommentAndVerifyProduct(comment,visit)">Add Comment</button>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,17 @@
+<ion-view view-title="Outlets">
+  <ion-content on-swipe-right="goBack()" on-swipe-left="goForward()">
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
+      <!-- Dashboard Tab -->
+      <ion-tab title="Outlets List"  href="#/stores/stores-list/:routeId">
+        <ion-nav-view name="tab-routes"></ion-nav-view>
+      </ion-tab>
+
+      <!-- Chats Tab -->
+      <ion-tab title="Order History"  href="#/stores/target-history/:routeId">
+        <ion-nav-view name="tab-target-history"></ion-nav-view>
+      </ion-tab>
+
+    </ion-tabs>
+  </ion-content>
+</ion-view>
